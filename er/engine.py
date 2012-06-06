@@ -92,10 +92,10 @@ Position = Enum(
 )
 
 def consume_literal(literal):
-    return lambda: ['%c' % literal,]
+    return lambda: [unichr(literal)]
 
 def consume_range(start, end):
-    return lambda: ['%c' % literal for literal in xrange(start, end)]
+    return lambda: [unichr(literal) for literal in xrange(start, end)]
 
 def consume_branch(unknown, branches):
     return lambda: (choice() for choices in (consume((tokens,)) for tokens in random.choice(branches)) for choice in choices)
