@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/simon-engledew/python-er.svg)](https://travis-ci.org/simon-engledew/python-er)
+
 ```
 pip install er
 ```
