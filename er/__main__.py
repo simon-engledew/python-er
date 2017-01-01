@@ -1,0 +1,3 @@
+import er
+
+er.main()

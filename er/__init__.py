@@ -1,6 +1,8 @@
+from __future__ import print_function
+
+import builtins
 import argparse
-import string
-import engine
+from . import engine
 
 def shuffle_pattern(items):
     items = list(items)
@@ -26,7 +28,7 @@ def shuffle_pattern(items):
         shuffled.append(tail)
 
     for item in shuffled:
-        if hasattr(item, '__iter__'):
+        if engine.isiterable(item):
             for child in shuffle_pattern(item):
                 yield child
         else:
@@ -34,18 +36,18 @@ def shuffle_pattern(items):
 
 def generate(regex, shuffle=False):
     output = engine.execute(regex)
-    output = (o for o in (shuffle_pattern if shuffle else engine.flatten)(output) if not isinstance(o, engine.Position.Value))
+    output = (o for o in (shuffle_pattern if shuffle else engine.flatten)(output) if not isinstance(o, engine.Position))
 
-    return string.join(map(str, output), '')
+    return ''.join(map(str, output))
 
 def main():
     parser = argparse.ArgumentParser(description='datagenerator: create test data')
-    parser.add_argument('regex', metavar='REGEX', type=unicode, help='a regular expression pattern for the data to conform to')
+    parser.add_argument('regex', metavar='REGEX', type=builtins.str, help='a regular expression pattern for the data to conform to')
     parser.add_argument('--shuffle', action='store_true', default=False, help="randomize the output (for passwords)")
 
     args = parser.parse_args()
 
-    print generate(args.regex, args.shuffle)
+    print(generate(args.regex, args.shuffle))
 
 if __name__ == "__main__":
     main()

@@ -11,6 +11,12 @@ setup(
 
     install_requires = [
     ],
+    extras_require = {
+      'tests': [
+        'nose'
+      ],
+      ':python_version < "3.4"': ["enum34"]
+    },
     entry_points = {
         'console_scripts': [
             'er = er:main',

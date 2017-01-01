@@ -3,6 +3,10 @@ import unittest
 import er
 
 class TestEr(unittest.TestCase):
+    def test_at_beginning(self):
+        password = er.generate(r'^[0-9]{10}')
+        self.assertTrue(re.search(r'^[0-9]{10}$', password))
+
     def test_generate(self):
         self.assertEqual(er.generate(r'1'), '1')
 
