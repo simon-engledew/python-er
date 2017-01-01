@@ -1,6 +1,5 @@
 from __future__ import print_function
 
-import builtins
 import argparse
 from . import engine
 
@@ -42,7 +41,7 @@ def generate(regex, shuffle=False):
 
 def main():
     parser = argparse.ArgumentParser(description='datagenerator: create test data')
-    parser.add_argument('regex', metavar='REGEX', type=builtins.str, help='a regular expression pattern for the data to conform to')
+    parser.add_argument('regex', metavar='REGEX', type=engine._str, help='a regular expression pattern for the data to conform to')
     parser.add_argument('--shuffle', action='store_true', default=False, help="randomize the output (for passwords)")
 
     args = parser.parse_args()

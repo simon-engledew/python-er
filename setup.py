@@ -15,8 +15,7 @@ setup(
       'tests': [
         'nose'
       ],
-      ':python_version < "3.4"': ["enum34"],
-      ':python_version < "3"': ["future"]
+      ':python_version < "3.4"': ["enum34"]
     },
     entry_points = {
         'console_scripts': [
