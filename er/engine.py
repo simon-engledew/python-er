@@ -1,11 +1,5 @@
 import random
 import builtins
-
-try:
-    from past.types import basestring
-except ImportError:
-    from __builtin__ import basestring
-
 import enum
 import collections
 import sre_parse
@@ -18,7 +12,7 @@ def to_tuple(value):
 def isiterable(value):
     return (
         isinstance(value, collections.Iterable) and
-        not isinstance(value, basestring)
+        not isinstance(value, (builtins.bytes, builtins.str))
     )
 
 def flatten(items):
