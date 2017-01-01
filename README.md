@@ -4,7 +4,7 @@
 pip install er
 ```
 
-A python 2.7.x micro library that generates data matching a given regular expression.
+A python micro library that generates data matching a given regular expression.
 
 On the command-line:
 
