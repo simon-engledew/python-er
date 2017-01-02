@@ -1,4 +1,7 @@
 [![Build Status](https://travis-ci.org/simon-engledew/python-er.svg)](https://travis-ci.org/simon-engledew/python-er)
+![Python Versions](https://img.shields.io/pypi/pyversions/er.svg)
+![Licence](https://img.shields.io/pypi/l/er.svg)
+![Format](https://img.shields.io/pypi/format/er.svg)
 
 ```
 pip install er
