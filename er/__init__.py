@@ -34,6 +34,13 @@ def shuffle_pattern(items):
             yield item
 
 def generate(regex, shuffle=False):
+    """
+    Given a regular expression, returns a random matching string.
+
+    :param regex: A regular expression to generate characters from
+    :rtype: string
+    """
+
     output = engine.execute(regex)
     output = (o for o in (shuffle_pattern if shuffle else engine.flatten)(output) if not isinstance(o, engine.Position))
 
